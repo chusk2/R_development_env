@@ -1,0 +1,15 @@
+{
+      "name": "R Environment",
+        "image": "rocker/rstudio:latest",  // RStudio Docker image
+          "customizations": {
+              "vscode": {
+                    "extensions": [
+                            "ikuyadeu.r",  // R Extension for Visual Studio Code
+                                    "yzhang.markdown-all-in-one"  // Optional: Markdown support
+                                          ]
+                                              }
+                                                },
+                                                  "postCreateCommand": "Rscript -e 'install.packages(c(\"ggplot2\", \"dplyr\"))'",  // Example: Install popular R packages
+                                                    "remoteUser": "rstudio"  // User from the Docker image
+                                                    }
+}
