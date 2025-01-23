@@ -1,15 +1,15 @@
 {
-      "name": "R Environment",
-        "image": "rocker/rstudio:latest",  // RStudio Docker image
-          "customizations": {
-              "vscode": {
-                    "extensions": [
-                            "ikuyadeu.r",  // R Extension for Visual Studio Code
-                                    "yzhang.markdown-all-in-one"  // Optional: Markdown support
-                                          ]
-                                              }
-                                                },
-                                                  "postCreateCommand": "Rscript -e 'install.packages(c(\"ggplot2\", \"dplyr\"))'",  // Example: Install popular R packages
-                                                    "remoteUser": "rstudio"  // User from the Docker image
-                                                    }
+  "name": "R Environment",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/r:1": {}
+  },
+  "postCreateCommand": "wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.09.1-494-amd64.deb && sudo gdebi -n rstudio-server-2023.09.1-494-amd64.deb",
+  "portsAttributes": {
+    "8787": {
+      "label": "RStudio",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "forwardPorts": [8787]
 }
