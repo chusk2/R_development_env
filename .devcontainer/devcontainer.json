@@ -1,20 +1,13 @@
 {
-  "name": "R Development Environment",
-  "image": "ghcr.io/codespaces/contribution/github-codespaces-base:latest",
-  "context": ".",
-  "features": {
-    "github-cli": "latest"
-  },
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
-  "portsAttributes": {
-    "8787": {
-      "onAutoForward": "openBrowser"
+  "name": "R Development",
+  "image": "rocker/r-ver:4.3.1",  // Use the Rocker R image
+  "postCreateCommand": "Rscript -e 'install.packages(\"tidyverse\")'",  // Install tidyverse after creation
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "REditorSupport.r"  // Install R extension for VS Code
+      ]
     }
-  },
-  "mounts": [
-    "source=${localWorkspaceFolder},target=/workspace,type=bind"
-  ]
+  }
 }
 
