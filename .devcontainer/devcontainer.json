@@ -1,6 +1,6 @@
 {
   "name": "R Development",
-  "image": "rocker/r-ver:4.3.1",  // Use the Rocker R image
+  "image": "rocker/rstudio:4.2.2",  // Use the Rocker RStudio image
   "postCreateCommand": "Rscript -e 'install.packages(\"tidyverse\")'",  // Install tidyverse after creation
   "customizations": {
     "vscode": {
@@ -8,6 +8,11 @@
         "REditorSupport.r"  // Install R extension for VS Code
       ]
     }
-  }
+  },
+  "portsAttributes": {
+    "8787": {
+      "label": "RStudio Server"  // Label for the port in the UI
+    }
+  },
+  "forwardPorts": [8787]  // Forward port 8787
 }
-
