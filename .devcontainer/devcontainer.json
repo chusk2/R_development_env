@@ -1,15 +1,20 @@
 {
-  "name": "R Environment",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "name": "R Development Environment",
+  "image": "ghcr.io/codespaces/contribution/github-codespaces-base:latest",
+  "context": ".",
   "features": {
-    "ghcr.io/devcontainers/features/r:1": {}
+    "github-cli": "latest"
   },
-  "postCreateCommand": "wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.09.1-494-amd64.deb && sudo gdebi -n rstudio-server-2023.09.1-494-amd64.deb",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
   "portsAttributes": {
     "8787": {
-      "label": "RStudio",
-      "onAutoForward": "openPreview"
+      "onAutoForward": "openBrowser"
     }
   },
-  "forwardPorts": [8787]
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ]
 }
+
