@@ -20,5 +20,8 @@ RUN R -e "install.packages('tidyverse')"
 # Set the working directory
 WORKDIR /workspace
 
-# Start RStudio Desktop (not recommended for headless environments)
-CMD ["rstudio"]
+# Expose RStudio Server port
+EXPOSE 8787
+
+# Start RStudio Server
+CMD ["rstudio-server", "start"]
