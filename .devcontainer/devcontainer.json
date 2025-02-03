@@ -1,13 +1,6 @@
 {
   "name": "R Development",
   "image": "rocker/rstudio:4.2.2",  // Use the Rocker RStudio image
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-  "workspaceFolder": "/workspace",
-  "extensions": [
-    "ikappas.r",
-    "juanpabloaj/rstudio",
-    "ms-python.python"
-  ],
   "postCreateCommand": "Rscript -e 'install.packages(\"tidyverse\")'",  // Install tidyverse after creation
   "customizations": {
     "vscode": {
