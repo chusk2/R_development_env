@@ -23,5 +23,7 @@ WORKDIR /workspace
 # Expose RStudio Server port
 EXPOSE 8787
 
+RUN chown -R codespace:codespace /workspace
+
 # Start RStudio Server
 CMD ["rstudio-server", "start"]
