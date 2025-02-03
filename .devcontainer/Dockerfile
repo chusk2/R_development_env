@@ -9,6 +9,8 @@ RUN apt-get update -y && apt-get install -y \
     gdebi-core \
     && apt-get clean
 
+RUN chown -R codespace:codespace /workspace
+
 # Download and install RStudio Desktop
 RUN wget https://download1.rstudio.org/desktop/ubuntu20/amd64/rstudio-2022.12.0-353-amd64.deb && \
     gdebi -n rstudio-2022.12.0-353-amd64.deb && \
